@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Dam2Pmm</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_nueva_ventana">nuevaVentana</string>
+    <string name="nuevo">Has abierto la nueva ventana</string>
+
+</resources>
