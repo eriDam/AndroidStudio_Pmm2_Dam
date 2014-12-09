@@ -15,6 +15,7 @@
         <activity
             android:name=".nuevaVentana"
             android:label="@string/title_activity_nueva_ventana" >
+            <!-- con el inten-filter le indicamos la accion que queremos aplicar, en este caso abrir la ventana en la accion principal-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
