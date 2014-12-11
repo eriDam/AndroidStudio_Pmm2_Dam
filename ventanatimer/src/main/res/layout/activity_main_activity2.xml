@@ -3,7 +3,8 @@
     android:layout_height="match_parent"
     tools:context="com.examples.dam.ventanatimer.MainActivity2" >
 
-    <TextView android:text="@string/se" android:layout_width="wrap_content"
+    <TextView android:text="@string/se"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/SE" />
 
