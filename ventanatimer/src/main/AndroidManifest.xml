@@ -7,15 +7,24 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <!--Activity principal tendrá el intent filter-->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
+            <!-- La forma implícita de llamar a 1 actividad : con el inten-filter le indicamos la
+            accion que queremos aplicar, que es lo que queremos lanzar, en este caso abrir la ventana
+            en la accion principal-->
             <intent-filter>
+                <!--La accion, es el main, podría ser visualizar como con maps VIEW, se define
+               para saber por donde debemos empezar-->
                 <action android:name="android.intent.action.MAIN" />
-
+                <!--La categoría es de lanzador, tiene que lanzar el main, category se refiere a las categorias que se
+                pueden definir al intent filter-->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--Otro activity, he cambiado el intent de activity para que se inicie principal .MainActivity, estaba en este-->
         <activity
             android:name=".MainActivity2"
             android:label="@string/title_activity_main_activity2" >

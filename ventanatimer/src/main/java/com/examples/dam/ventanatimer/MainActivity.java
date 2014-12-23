@@ -28,8 +28,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         //Creo una tarea para lanzar después del DELAY(RETARDO)
-        //Un timerTask es una tarea, una clase runable que se ejecuta en paralelo con el resto de tareas
-        //y para que esto suceda tenemos que implementar el metodo run, lo que hará run es
+        //Un timerTask es una tarea, una clase runable (que se ejecuta en paralelo con el resto de tareas)
+        //y para que esto suceda tenemos que implementar el metodo run, lo que hará run es lanzar el mainActivity2
 
         TimerTask task = new TimerTask() {
             @Override
@@ -49,8 +49,10 @@ public class MainActivity extends Activity {
 
 
     //Lo vamos a programar después de 3000 milisegundos
+    //Timer planifica una tarea
     Timer timer = new Timer();
-    timer.schedule(task,RETARDO);
+    timer.schedule(task,RETARDO);//el metodo schedule (planificar),
+    // lanza 1 timerTask en un delay(retardo) en sus parametros de constructor
 
 }
 
