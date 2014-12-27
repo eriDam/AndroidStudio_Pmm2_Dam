@@ -3,7 +3,6 @@ package com.examples.dam.musica;
 import android.app.Activity;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,9 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.media.AudioManager.OnAudioFocusChangeListener;
 
 
 public class MainActivity extends Activity {
+
     //Control de volumen
     private int mVolume = 6, mVolumeMax = 10, mVolumeMin = 0;
     //Control sonando
@@ -26,7 +27,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Capturamos el servicio que nos proporciona el control del volumen
+
+        // Capturamos/llamamos a el AudioManager,es 1 servicio de android que nos proporciona
+        // el control del volumen y los tonos del telefono
         mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
         // Volumen actual programado
@@ -71,12 +74,20 @@ public class MainActivity extends Activity {
         playButton.setEnabled(false);
 
         // Creamos el manejador del sonido
-        mSoundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        /**SoundPool es 1 clase para reproducir pequeñas pistas de audio. Con esta clase podemos repetir
+         *  la reproducción de sonidos y hasta reproducir múltiples sonidos de manera simultánea.
+         *  Recordar que los archivos no deben superar 1MB
+         *  El primer parametro es cunatos strings vamos a manejar en paralelo, en el 2 le indicamos que es
+         *  de tipo MUSIC y el 3 es la calidad, pero no tiene efecto ahora*/
 
-        // Cargamos la cancion
+          mSoundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+
+        /** Cargamos la cancion, le pasamos 3 parametros en el constructor, this para indicar el contexto sobre donde
+         * lo vamos a lanzar (sobre el activity), el 2 param es el recurso id(la cancion), 3 param la prioridad*/
         mSoundId = mSoundPool.load(this, R.raw.miracle, 1);
 
         // Esperamos a que se cargue la cancion completa
+        //comprobar si la carga se ha completado a través de un objeto OnLoadCompleteListener.
         mSoundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
             @Override
             public void onLoadComplete(SoundPool soundPool, int sampleId,
@@ -112,7 +123,7 @@ public class MainActivity extends Activity {
 
         });
 
-        // Request audio focus
+        // Request audio focus - solicitamos el foco de sonido de nuestro aplicativo
         int result = mAudioManager.requestAudioFocus(afChangeListener,
                 AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
 
