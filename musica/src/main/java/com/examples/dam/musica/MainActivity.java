@@ -22,7 +22,9 @@ import static android.media.MediaPlayer.OnPreparedListener;
  *
  * 1.	Utilizando el Activity generado para la tarea con SoundPool
  * 2.	Modificaremos las líneas necesarias para sustituir SoundPool por MediaPlayer
-
+ *
+ * La principal diferencia entre SoundPool y mediaPlayer es que MediaPlayer consume muchos mas recursos
+ * que SoundPool, MediaPlayer también reproduce archivos mas grandes e incluso de video
  * */
 public class MainActivity extends Activity {
 
@@ -43,7 +45,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Capturamos/llamamos a el AudioManager,es 1 servicio de android que nos proporciona
+        // Capturamos/llamamos a el AudioManager, es 1 servicio de android que nos proporciona
         // el control del volumen y los tonos del telefono
         mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
@@ -92,7 +94,7 @@ public class MainActivity extends Activity {
         playButton.setEnabled(false);
 
         // Creamos el manejador del sonido
-        /**SoundPool es 1 clase para reproducir pequeñas pistas de audio. Con esta clase podemos repetir
+        /** SoundPool es 1 clase para reproducir pequeñas pistas de audio. Con esta clase podemos repetir
          *  la reproducción de sonidos y hasta reproducir múltiples sonidos de manera simultánea.
          *  Recordar que los archivos no deben superar 1MB
          *  El primer parametro es cuantos strings vamos a manejar en paralelo, en el 2 le indicamos que es
@@ -112,7 +114,7 @@ public class MainActivity extends Activity {
 
 
         /*
-        // Esperamos a que se cargue la cancion completa
+        //setOnLoadCompleteListener es para esperar a que se cargue la cancion completa
         //comprobar si la carga se ha completado a través de un objeto OnLoadCompleteListener.
         mSoundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
             @Override
@@ -186,7 +188,8 @@ public class MainActivity extends Activity {
         mAudioManager.loadSoundEffects();
     }
 
-    // Release resources & clean up
+    // Es importante hacer un release, si en algún momento nos vamos de la aplicación
+    //liberará los recursos del sistema, ya que consume bastante
     @Override
     protected void onPause() {
         Log.d("AUDIO", "EN PAUSA");
