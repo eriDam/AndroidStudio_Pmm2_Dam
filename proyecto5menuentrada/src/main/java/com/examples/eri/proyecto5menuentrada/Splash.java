@@ -18,7 +18,7 @@ public class Splash extends Activity {
      * splashScreen, en este caso para la
      * ejecución de 5000 milisegundos
      */
-    private static final long RETARDO = 5000;
+    private static final long RETARDO = 4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class Splash extends Activity {
 
                 //arrancar la siguiente activity
                 Intent mainIntent = new Intent().setClass(
-                        Splash.this, MainActivity2.class);
+                        Splash.this, MainActivity.class);
                 startActivity(mainIntent);
 
                 //Cerrar la actividad para que el usuario no pueda volver atrás presionando el btn back

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Con este archivo xml define un recurso único gráfico (drawable) que cambiará
+     en función del estado del botón. El primer ítem define la imagen usada cuando se pulsa el
+     botón, el segundo ítem define la imagen usada cuando el botón tiene el foco (cuando el
+     botón está seleccionado con la rueda de desplazamiento o las teclas de dirección) y el
+     tercero, la imagen en estado normal-->
+<selector
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:background="#ffff482b"
+        android:state_pressed="true" />
+    <item android:background="#ffff888c"
+        android:state_focused="true" />
+    <item android:background="#0000482b"/>
+</selector>

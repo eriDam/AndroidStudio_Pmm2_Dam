@@ -1,0 +1,46 @@
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="0,1"
+    tools:context="com.examples.eri.proyecto5menuentrada.MainActivity">
+    <!--TableLayout distribuye los elementos de forma tabular. Se utiliza la etiqueta
+    <TableRow> cada vez que queremos insertar una nueva línea .-->
+    <TableRow android:layout_weight="1">
+        <ImageButton
+            android:id="@+id/imageButtonLike"
+            android:src="@drawable/ic_action_like"
+            android:background="#ff70c064"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Me gusta"
+            />
+        <ImageButton
+            android:id="@+id/imageButtonNotLike"
+            android:src="@drawable/ic_action_dontlike"
+            android:background="#ffff482b"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="No me gusta" />
+    </TableRow>
+    <TableRow android:layout_weight="1">
+         <ImageButton
+        android:id="@+id/imageButtonSettings"
+        android:src="@drawable/ic_action_settings"
+        android:background="#ff58c0b8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Opciones"
+         />
+        <ImageButton
+        android:id="@+id/imageButtonExit"
+        android:src="@drawable/ic_action_exit"
+        android:background="#f7fac830"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Salir"
+         />
+    </TableRow>
+
+</TableLayout>
