@@ -1,0 +1,29 @@
+     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+         android:gravity="center_horizontal">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Servicio de reproducción de música"
+            android:gravity="center_horizontal"
+            android:textColor="#ff261219" />
+
+        <Button android:id="@+id/boton_arrancar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arrancar servicio"/>
+
+         <Space
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="right" />
+
+         <Button android:id="@+id/boton_detener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detener servicio"
+             android:layout_gravity="center_horizontal" />
+    </LinearLayout>

@@ -33,7 +33,7 @@ public class Main_Activity extends ActionBarActivity {
          * Con la clase SharedPreferences realizaremos 2 partes, lectura y escritura
          *
          * Lectura: cogeremos las preferencias de este activity en
-         * modo privado(solo serán utilizadas para esta app) creando un objeto de tipo
+         * modo privado MODE_PRIVATE(solo serán utilizadas para esta app) creando un objeto de tipo
          * SharedPreferences
          *
         */
@@ -54,7 +54,7 @@ public class Main_Activity extends ActionBarActivity {
                     /**En el evento del botón:
                      * Para escribir
                      *  Cogeremos el Editor y obtendremos los datos de las cajas de texto directamente*/
-                    SharedPreferences.Editor prefEd = pref.edit();
+                   SharedPreferences.Editor prefEd = pref.edit();
 
                     prefEd.putInt("age", Integer.parseInt(TextEdad.getText().toString()));
                     prefEd.putString("name", TextNombre.getText().toString());
