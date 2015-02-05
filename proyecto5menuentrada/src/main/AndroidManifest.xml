@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityMusic"
+            android:name=".Music_activity"
             android:label="@string/title_activity_main_activity2" >
         </activity>
         <activity
