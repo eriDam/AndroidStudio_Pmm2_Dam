@@ -1,21 +1,24 @@
 package com.examples.eri.proyecto5menuentrada;
 /**
-        * @author erika_000
-        *
-        * PROYECTO 5 - MENÚ DE ENTRADA - Splash Screen - Reproducciendo música
-        * con MediaPlayer - TableLayout - ToggleB desactivar sonido - Exit
-        *
-        *
-        * 2.	Modificaremos las líneas necesarias para sustituir SoundPool por MediaPlayer
-        *
-        * La principal diferencia entre SoundPool y mediaPlayer es que MediaPlayer consume muchos mas recursos
-        * que SoundPool, MediaPlayer también reproduce archivos mas grandes e incluso de video
+ * @author erika_000
  *
- * implements CompoundButton.OnCheckedChangeListener
-        * */
+ * PROYECTO 5 - MENÚ DE ENTRADA - Splash Screen - Reproducciendo música
+ * con MediaPlayer - TableLayout - ToggleB desactivar sonido - Exit -
+ *
+ * Extras añadidos: Pruebas de utilización de cámara
+ * Activity con prueba de Sound Pool y Media Player
+
+ * La principal diferencia entre SoundPool y mediaPlayer es que MediaPlayer consume muchos mas recursos
+ * que SoundPool, MediaPlayer también reproduce archivos mas grandes e incluso de video
+ *
+ * implements CompoundButton.OnCheckedChangeListener se Utilizará para que el botón cambie automaticamente
+ * a ON y OF
+ * */
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
+import android.media.AudioManager.OnAudioFocusChangeListener;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,21 +28,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.media.AudioManager.OnAudioFocusChangeListener;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
 import static android.media.MediaPlayer.OnPreparedListener;
 
-public class Music_activity extends Activity implements CompoundButton.OnCheckedChangeListener{
+public class Music_activity extends Activity implements CompoundButton.OnCheckedChangeListener {
     /**
      * Guardar preferencias de usuario: Para que cuando se inicie de nuevo, recuerde estos datos
      * Capturamos un bolean introducidos por el usuario al activar el boton.
-     *
-     *  Las preferencias no se almacenan en ficheros binarios como las bases de datos SQLite,
-     *  sino en ficheros XML. Estos ficheros XML se almacenan en una ruta que sigue el siguiente patrón:
-     *  /data/data/paquete.java/shared_prefs/nombre_coleccion.xml
+     * <p/>
+     * Las preferencias no se almacenan en ficheros binarios como las bases de datos SQLite,
+     * sino en ficheros XML. Estos ficheros XML se almacenan en una ruta que sigue el siguiente patrón:
+     * /data/data/paquete.java/shared_prefs/nombre_coleccion.xml
      * Creamos  las preferencias de usuario
-     * */
+     */
     private SharedPreferences pref;
     private boolean audioActivado;
     public static final String PREFS_NAME = "AmorOdioSettings";
@@ -47,8 +50,7 @@ public class Music_activity extends Activity implements CompoundButton.OnChecked
     //Control de volumen
     private int mVolume = 6, mVolumeMax = 10, mVolumeMin = 0;
     //Control sonando música
-    private int sonando=0; //0=cancion no comenzada; 1=comenzada; 2=pause;
-
+    private int sonando = 0; //0=cancion no comenzada; 1=comenzada; 2=pause;
 
 
     //Definimos los elementos que utilizaremos
@@ -71,8 +73,8 @@ public class Music_activity extends Activity implements CompoundButton.OnChecked
         setContentView(R.layout.activity_music);
 
         //Localizamos/recuperamos los elementos mediante su id
-        tButtonMusica=(ToggleButton)findViewById(R.id.toggleButtonMusica);
-        tView=(TextView)findViewById(R.id.tView);
+        tButtonMusica = (ToggleButton) findViewById(R.id.toggleButtonMusica);
+        tView = (TextView) findViewById(R.id.tView);
 
 
         /**
@@ -85,10 +87,9 @@ public class Music_activity extends Activity implements CompoundButton.OnChecked
          *
          */
         pref = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        audioActivado = pref.getBoolean("Audio",true);//Si no hay preferencias será true por defecto
+        audioActivado = pref.getBoolean("Audio", true);//Si no hay preferencias será true por defecto
         //audioActivado = pref.getBoolean("Audio",  true);//Si no hay preferencias será true por defecto
         Log.d("AUDIO SET", String.valueOf(audioActivado));
-
 
 
         /**Asignarle a tButtonMusica el setOnCheckedChangeListener,
@@ -111,7 +112,7 @@ public class Music_activity extends Activity implements CompoundButton.OnChecked
             @Override
             public void onClick(View v) {
 
-               // El AudioManager puede realizar efectos, como hacer sonar el efecto del click
+                // El AudioManager puede realizar efectos, como hacer sonar el efecto del click
                 mAudioManager.playSoundEffect(AudioManager.FX_KEY_CLICK, mVolume);
 
                 if (mVolume < mVolumeMax) {
@@ -156,26 +157,29 @@ public class Music_activity extends Activity implements CompoundButton.OnChecked
                 AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
 
         mCanPlayAudio = AudioManager.AUDIOFOCUS_REQUEST_GRANTED == result;
-      //Listener mPlayer
+        //Listener mPlayer
         mPlayer.setOnPreparedListener(new OnPreparedListener() {
 
-          @Override
-          public void onPrepared(MediaPlayer mp) {
-          Log.d("AUDIO", "Cargada la cancion");
-              if(audioActivado != true){
-          tButtonMusica.setEnabled(true);//ponemos el tButtonMusica activo
-          }//Fin if
-          }//Fin onPrepared
+                                          @Override
+                                          public void onPrepared(MediaPlayer mp) {
+                                              Log.d("AUDIO", "Cargada la cancion");
+                                              if (audioActivado != true) {
+                                                  tButtonMusica.setEnabled(true);//ponemos el tButtonMusica activo
+                                              }//Fin if
+                                          }//Fin onPrepared
                                       }
         );
         //Activar o desactivar el boton dependiendo de preferencias
-        if(audioActivado) {
+        if (audioActivado) {
             tButtonMusica.setChecked(true);
             //hacer sonar audio
             mPlayer.start();
-        }else{
+            tView.setText("Sonido Activado");
+        } else {
             tButtonMusica.setChecked(false);
             mPlayer.pause();
+            tView.setText("Sonido desactivado");
+
         }
         // Suena la cancion
         tButtonMusica.setOnClickListener(new View.OnClickListener() {
@@ -189,48 +193,45 @@ public class Music_activity extends Activity implements CompoundButton.OnChecked
                 //True tButtonMusica si estaba a false
 
                 if (audioActivado == false) {
+                    //Activo el toggleButton
                     tButtonMusica.setChecked(true);
+
                     mPlayer.setVolume((float) mVolume / mVolumeMax,
                             (float) mVolume / mVolumeMax);
-                    tView.setText("Sonido Activado");
-                    MessageBox("audio"+audioActivado);
+
+                    MessageBox("Audio" + audioActivado);
+
 
                     //prefs Audio a true
                     prefEd.putBoolean("Audio", true);
                     prefEd.commit();//Actualizamos las pref
                     MessageBox("Guardadas preferencias");
-
                     //audio a play
                     mPlayer.start();
+                    Log.d("AUDIO", "SONANDO");
+
                 } else {
-                    //False si estaba a true
-                    if(audioActivado == true){
+                    if (audioActivado == true) {//toggleButton False si estaba a true
                         tButtonMusica.setChecked(false);
                         mPlayer.setVolume((float) mVolume / mVolumeMax,
                                 (float) mVolume / mVolumeMax);
-                        //audio a pause
-                        mPlayer.pause();
-                        tView.setText("Sonido desactivado");
+
                         //prefs Audio a false
                         prefEd.putBoolean("Audio", false);
                         MessageBox("Sonido desactivado");
+
                         prefEd.commit();//Actualizamos las pref
                         MessageBox("Guardadas preferencias");
+                        //audio a pause
+                        mPlayer.pause();
+                        Log.d("AUDIO", "SONANDO");
                     }
+                }//fin else
 
-
-                        }
-
-
-
-
-                }//Fin metodo OnClick de ToggleButonMusica
-
+            }//Fin metodo OnClick de ToggleButonMusica
 
 
         });//Fin setOnClickListener
-
-
 
 
     }
@@ -251,7 +252,7 @@ public class Music_activity extends Activity implements CompoundButton.OnChecked
     protected void onPause() {
         Log.d("AUDIO", "EN PAUSA");
         if (null != mAudioManager) {
-             mPlayer.release();
+            mPlayer.release();
             //mSoundPool.unload(mSoundId);
             //mSoundPool.release();
             //mSoundPool = null;
@@ -307,22 +308,22 @@ public class Music_activity extends Activity implements CompoundButton.OnChecked
 
     //Al implementar la clase OnCheckedChangeListener tenemos que implementar
     // este metodo onCheckedChanged para el toggleButton
-     @Override
+    @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         //Con el condicional le decimos que si está checked (si es true) inserta un texto
-        if (tButtonMusica.isChecked()){
+        if (tButtonMusica.isChecked()) {
             tView.setText("Sonido Activado");
-        }else{
+        } else {
             tView.setText("Sonido desactivado");
         }
 
-        }//Fin onCheckedChanged
+    }//Fin onCheckedChanged
 
     //Metodo para usar el messaje Box
-    public void MessageBox(String message){
+    public void MessageBox(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 
-    }
+}
 

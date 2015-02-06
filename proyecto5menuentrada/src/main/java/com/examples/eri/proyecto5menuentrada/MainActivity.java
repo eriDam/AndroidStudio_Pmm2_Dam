@@ -12,13 +12,12 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 
-
-public class MainActivity extends  Activity {
+public class MainActivity extends Activity {
     /**
      * Guardar preferencias de usuario: Para que cuando se inicie de nuevo, recuerde estos datos
      * Capturamos un bolean introducidos por el usuario al activar el boton
      * Creamos  las preferencias de usuario
-     * */
+     */
     private SharedPreferences pref;
     private boolean audioActivado;
     public static final String PREFS_NAME = "AmorOdioSettings";
@@ -85,7 +84,7 @@ public class MainActivity extends  Activity {
             }
         });
         // Al pulsar el imageButton Camara abrirá la siguiente ventana media con el intent filter
-        final ImageButton imageButtonCam= (ImageButton) findViewById(R.id.imageButtonCam);
+        final ImageButton imageButtonCam = (ImageButton) findViewById(R.id.imageButtonCam);
         imageButtonCam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +144,7 @@ public class MainActivity extends  Activity {
     }
 
     //Metodo para usar el messaje Box
-    public void MessageBox(String message){
+    public void MessageBox(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
@@ -160,6 +159,6 @@ public class MainActivity extends  Activity {
                 }
             }*/
 
-        }
+}
 
 

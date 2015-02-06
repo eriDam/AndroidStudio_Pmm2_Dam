@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.examples.eri.proyecto6_acceso_a_datos_t24_camara">
-    <!--El permiso de almacenamiento - si la app guarda las imágenes o videos para
-    almacenamiento externo del dispositivo (tarjeta SD)-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 

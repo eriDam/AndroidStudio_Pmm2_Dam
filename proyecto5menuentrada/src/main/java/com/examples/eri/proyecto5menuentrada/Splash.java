@@ -25,7 +25,6 @@ public class Splash extends Activity {
         super.onCreate(savedInstanceState);
 
 
-
         // Definimos la orientacion a vertical - Set portrait orientation
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // Escondemos la barra de Titulo - Hide title bar
@@ -36,7 +35,7 @@ public class Splash extends Activity {
         //Definimos la progress bar, en este caso no vamos a indicar que se rellene
         //en función del tiempo que queda para acabar el splash pero es mejor opción
         final ProgressBar spinner;
-        spinner = (ProgressBar)findViewById(R.id.spinner);
+        spinner = (ProgressBar) findViewById(R.id.spinner);
         spinner.setVisibility(View.VISIBLE);
         //Creo una tarea para lanzar después del DELAY(RETARDO)
         //Un timerTask es una tarea, una clase runable (que se ejecuta en paralelo con el resto de tareas)

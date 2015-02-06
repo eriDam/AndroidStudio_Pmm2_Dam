@@ -9,39 +9,37 @@ package com.examples.eri.proyecto5menuentrada;
  * Los recursos de audio deben incluirse en una carpeta que tenemos que crear dentro del
  * directorio “res” .Esta carpeta debe llamarse “raw”. Incluimos allí nuestros archivos de audio
  * */
+
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 /**
  * 1 PASO:
- *  Implementamos la interfaz OnClickListener
- *  */
+ * Implementamos la interfaz OnClickListener
+ */
 
 
 public class Reproductor_activity extends Activity implements View.OnClickListener {
     /**
      * 2 PASO:
-     *  Referenciar cada botón a un objeto de la clase “Button”, a la vez nos creamos un objeto
-     *  de la clase MediaPlayer y otro objeto de la clase SoundPool y un entero al que llamaremos
-     *  flujodemusica.
-     * */
-    public Button bplay,bstop,bsoundPool;
-    public ImageButton  androidBack;
+     * Referenciar cada botón a un objeto de la clase “Button”, a la vez nos creamos un objeto
+     * de la clase MediaPlayer y otro objeto de la clase SoundPool y un entero al que llamaremos
+     * flujodemusica.
+     */
+    public Button bplay, bstop, bsoundPool;
+    public ImageButton androidBack;
     public MediaPlayer mp;
     public SoundPool sp;
-    public int flujodemusica=0;
+    public int flujodemusica = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +48,10 @@ public class Reproductor_activity extends Activity implements View.OnClickListen
          * 4 PASO:
          * Los referenciamos x su Id
          * */
-        bplay = (Button)findViewById(R.id.playMp);
-        bstop = (Button)findViewById(R.id.stopMp);
-        bsoundPool = (Button)findViewById(R.id.playSp);
-        androidBack= (ImageButton)findViewById(R.id.imageButtonAndro);
+        bplay = (Button) findViewById(R.id.playMp);
+        bstop = (Button) findViewById(R.id.stopMp);
+        bsoundPool = (Button) findViewById(R.id.playSp);
+        androidBack = (ImageButton) findViewById(R.id.imageButtonAndro);
         /**
          * 5 PASO:
          * Utilizamos el método onClick,para todos los objetos
@@ -94,7 +92,7 @@ public class Reproductor_activity extends Activity implements View.OnClickListen
          * La estructura de la función sp.play() tendrá la siguiente forma:
          * sp.play(soundID, leftVolume, rightVolume, priority, loop, rate);
          */
-        flujodemusica= sp.load(this,R.raw.menubit,1);
+        flujodemusica = sp.load(this, R.raw.menubit, 1);
 
     }
 
@@ -120,38 +118,42 @@ public class Reproductor_activity extends Activity implements View.OnClickListen
 
         return super.onOptionsItemSelected(item);
     }
+
     /**
      * 6 PASO:
      * Implementamos el método requerido de OnClickListener
      * Escuchamos los eventos de los botones, y creamos tres métodos
      * para cada uno de nuestros casos
-     * */
+     */
     @Override
     public void onClick(View v) {
 
-        if(v.getId()==R.id.playMp){//Play media player
+        if (v.getId() == R.id.playMp) {//Play media player
             play_mp();
 
             androidBack.setImageResource(R.drawable.rockdroid);
 
         }
-        if(v.getId()==R.id.stopMp){//stop  media player
+        if (v.getId() == R.id.stopMp) {//stop  media player
             stop_mp();
             androidBack.setImageResource(R.drawable.demondroid);
         }
-        if(v.getId()==R.id.playSp){//Play SoundPool
+        if (v.getId() == R.id.playSp) {//Play SoundPool
             play_sp();
             androidBack.setImageResource(R.drawable.rockdroid);
         }
     }
+
     private void play_sp() {
-        mp= MediaPlayer.create(this, R.raw.theecstasyofgold);
+        mp = MediaPlayer.create(this, R.raw.theecstasyofgold);
         mp.start();
     }
+
     private void stop_mp() {
 
         mp.stop();
     }
+
     private void play_mp() {
         sp.play(flujodemusica, 1, 1, 0, 0, 1);
 
