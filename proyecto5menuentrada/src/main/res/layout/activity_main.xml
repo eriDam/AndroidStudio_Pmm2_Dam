@@ -11,7 +11,7 @@
         <ImageButton
             android:id="@+id/imageButtonLike"
             android:src="@drawable/ic_action_like"
-            android:background="#ff70c064"
+            android:background="#ff8ade7e"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="Me gusta"
@@ -26,21 +26,39 @@
     </TableRow>
     <TableRow android:layout_weight="1">
          <ImageButton
-        android:id="@+id/imageButtonSettings"
-        android:src="@drawable/ic_action_settings"
-        android:background="#ff58c0b8"
+        android:id="@+id/imageButtonReprod"
+        android:src="@drawable/ic_action_music"
+        android:background="#ffc0a2bb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="Opciones"
          />
         <ImageButton
-        android:id="@+id/imageButtonExit"
-        android:src="@drawable/ic_action_exit"
-        android:background="#f7fac830"
+        android:id="@+id/imageButtonCam"
+        android:src="@drawable/ic_action_camera"
+        android:background="#f7ffe531"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="Salir"
          />
+    </TableRow>
+    <TableRow android:layout_weight="1">
+        <ImageButton
+            android:id="@+id/imageButtonSettings"
+            android:src="@drawable/ic_action_settings"
+            android:background="#ff3af5fc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Opciones"
+            />
+        <ImageButton
+            android:id="@+id/imageButtonExit"
+            android:src="@drawable/ic_action_exit"
+            android:background="#f7f5faae"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Salir"
+            />
     </TableRow>
 
 </TableLayout>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.examples.eri.proyecto5menuentrada" >
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -25,8 +27,12 @@
             android:label="@string/title_activity_main" >
         </activity>
         <activity
-            android:name=".Settings_activity"
+            android:name=".Media_activity"
             android:label="@string/title_activity_settings_activity" >
+        </activity>
+        <activity
+            android:name=".Reproductor_activity"
+            android:label="@string/title_activity_reproductor" >
         </activity>
     </application>
 

@@ -61,9 +61,9 @@
             android:layout_height="wrap_content"
             android:text="New ToggleButton"
             android:id="@+id/toggleButtonMusica"
+            android:checked="false"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:checked="false" />
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="wrap_content"

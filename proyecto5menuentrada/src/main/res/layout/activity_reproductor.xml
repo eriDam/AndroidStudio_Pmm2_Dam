@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.examples.eri.proyecto5menuentrada.Reproductor_activity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1">
+
+        <Button
+
+            android:id="@+id/playMp"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:text="Play SoundPool"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignBaseline="@+id/playSp"
+            android:layout_alignBottom="@+id/playSp"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+
+            android:id="@+id/playSp"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:text="Play Media Player"
+            android:layout_alignBaseline="@+id/stopMp"
+            android:layout_alignBottom="@+id/stopMp"
+            android:layout_alignStart="@+id/stopMp"
+            android:layout_gravity="center_horizontal"  />
+
+        <Button
+
+            android:id="@+id/stopMp"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:text="Stop MediaPlayer"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="87dp"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButtonAndro"
+            android:layout_weight="0.91"
+            android:background="@drawable/demondroid"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+</RelativeLayout>

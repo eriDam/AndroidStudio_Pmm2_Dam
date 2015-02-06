@@ -9,7 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ToggleButton;
+import android.widget.Toast;
+
 
 
 public class MainActivity extends  Activity {
@@ -51,6 +52,50 @@ public class MainActivity extends  Activity {
         mediaPlayer.setVolume(50,50);
         mediaPlayer.start();*/
 
+        // Al pulsar el imageButton me gusta se mostará una lista con dos fragments, de momento sale un mensaje
+        // Cerrar la actividad para que el usuario no pueda volver atrás presionando el btn back
+        final ImageButton imageButtonLike = (ImageButton) findViewById(R.id.imageButtonLike);
+        imageButtonLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MessageBox("Pulsado Me gusta");
+            }
+        });
+
+        // Al pulsar el imageButton No me gusta se mostará una lista con dos fragments, de momento sale un mensaje
+        // Cerrar la actividad para que el usuario no pueda volver atrás presionando el btn back
+        final ImageButton imageButtonNotLike = (ImageButton) findViewById(R.id.imageButtonNotLike);
+        imageButtonNotLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MessageBox("Pulsado No me gusta");
+            }
+        });
+
+        // Al pulsar el imageButton Musica abrirá la siguiente ventana media con el intent filter
+        final ImageButton imageButtonReprod = (ImageButton) findViewById(R.id.imageButtonReprod);
+        imageButtonReprod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //arrancar la siguiente activity
+                Intent mainIntentRep;
+                mainIntentRep = new Intent().setClass(
+                        MainActivity.this, Reproductor_activity.class);
+                startActivity(mainIntentRep);
+            }
+        });
+        // Al pulsar el imageButton Camara abrirá la siguiente ventana media con el intent filter
+        final ImageButton imageButtonCam= (ImageButton) findViewById(R.id.imageButtonCam);
+        imageButtonCam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //arrancar la siguiente activity
+                Intent mainIntentCam;
+                mainIntentCam = new Intent().setClass(
+                        MainActivity.this, Media_activity.class);
+                startActivity(mainIntentCam);
+            }
+        });
 
         // Al pulsar el imageButton Settings abrirá la siguiente ventana Music_activity con el intent filter
         final ImageButton btnSettings = (ImageButton) findViewById(R.id.imageButtonSettings);
@@ -58,10 +103,10 @@ public class MainActivity extends  Activity {
             @Override
             public void onClick(View v) {
                 //arrancar la siguiente activity
-                Intent mainIntent;
-                mainIntent = new Intent().setClass(
+                Intent mainIntentSt;
+                mainIntentSt = new Intent().setClass(
                         MainActivity.this, Music_activity.class);
-                startActivity(mainIntent);
+                startActivity(mainIntentSt);
             }
         });
 
@@ -99,10 +144,13 @@ public class MainActivity extends  Activity {
         return super.onOptionsItemSelected(item);
     }
 
-//    public void MeGusta(View view) {
-//        Toast.makeText(this, "Pulsado Me gusta", Toast.LENGTH_SHORT).show();
-//    }
-        @Override
+    //Metodo para usar el messaje Box
+    public void MessageBox(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    //Metodo para coger coger el boton de musica de otro activity
+     /*   @Override
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             final ToggleButton toggleButtonP = (ToggleButton)findViewById(R.id.toggleButtonMusica);
             if ( requestCode == 1 ){
@@ -110,7 +158,8 @@ public class MainActivity extends  Activity {
 
                     //t.setText(data.getExtras().get("text").toString());
                 }
-            }
+            }*/
 
         }
-}
+
+
