@@ -4,5 +4,13 @@
     <string name="app_name">Proyecto_6_Sqlite</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="fix_string">Arreglar</string>
+    <string name="title_activity_forumlario">Forumlario</string>
+    <string name="label_id">Id: </string>
+    <string name="label_nombre_artista">Cantante</string>
+    <string name="crear">Nuevo artista</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="guardar">Guardar</string>
+    <string name="hipoteca_crear_titulo">Añadir artista</string>
 
 </resources>
