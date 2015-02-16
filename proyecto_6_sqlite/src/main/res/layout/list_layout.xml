@@ -9,11 +9,26 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:textSize="24sp" />
-    <!--Este textView contendrá la columna nombre-->
+
     <TextView
         android:id="@+id/nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:textSize="24sp" />
+    <View android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/edit"
+        android:onClick="editHandler"/>
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/view"
+        android:onClick="viewHandler"/>
 </LinearLayout>
