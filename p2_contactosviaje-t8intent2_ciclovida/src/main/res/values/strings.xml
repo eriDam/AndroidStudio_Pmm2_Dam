@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">P2_ContactosViaje-T8Intent2_cicloVida</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasenya">Contraseña</string>
+    <string name="boton">Comprobar</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="usuariov2">Usuario</string>
+    <string name="usuarioReadV2">Usuario</string>
+    <string name="passV2">Contraseña</string>
+    <string name="passReadV2">Contraseña</string>
+    <string name="tituloVentana2">Datos Ventana 1</string>
+
+</resources>
