@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Proyecto3_t15_ListView</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="colors">
+        <item>Rojo</item>
+        <item>Azul</item>
+        <item>Amarillo</item>
+        <item>Verde</item>
+        <item>Morado</item>
+        <item>Morado2</item>
+        <item>Morado3</item>
+        <item>Naranja</item>
+        <item>Negro</item>
+        <item>Gris</item>
+
+    </string-array>
+
+</resources>

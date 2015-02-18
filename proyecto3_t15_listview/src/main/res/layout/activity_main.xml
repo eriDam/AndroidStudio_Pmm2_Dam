@@ -1,0 +1,11 @@
+<!--Colocaré un text View muy simple que ocupará todo el
+espacio-->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:padding="10dp"
+    android:textSize="24sp"
+    android:background="#ffd1d8d2">
+
+</TextView>
