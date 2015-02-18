@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <!--Creamos un list_layout para el listView con dos textviews
+  que serán el id y el nombre del artista/item
+-->
+    <!--Este textView contendrá la columna Id-->
+    <TextView
+        android:id="@+id/_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="24sp" />
+    <!--Este textView contendrá la columna icono-->
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_action_like" >
+
+    </ImageView>
+    <!--Este textView contendrá la columna nombre-->
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="24sp" />
+    <View android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/edit"
+        android:onClick="editHandler"/>
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/view"
+        android:onClick="viewHandler"/>
+</LinearLayout>

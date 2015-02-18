@@ -58,6 +58,11 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 MessageBox("Pulsado Me gusta");
+                //arrancar la siguiente activity
+                Intent abreListaLike;
+                abreListaLike = new Intent().setClass(
+                        MainActivity.this, LikeActivity.class);
+                startActivity(abreListaLike);
             }
         });
 

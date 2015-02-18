@@ -34,6 +34,22 @@
             android:name=".Reproductor_activity"
             android:label="@string/title_activity_reproductor" >
         </activity>
+        <activity
+            android:name=".Like_Activity"
+            android:label="@string/title_activity_like_" >
+        </activity>
+        <activity
+            android:name=".DisLike_Activity"
+            android:label="@string/title_activity_dis_like_" >
+        </activity>
+        <activity
+            android:name=".Formulario"
+            android:label="@string/title_activity_formulario" >
+        </activity>
+        <activity
+            android:name=".LikeActivity"
+            android:label="@string/title_activity_like" >
+        </activity>
     </application>
 
 </manifest>

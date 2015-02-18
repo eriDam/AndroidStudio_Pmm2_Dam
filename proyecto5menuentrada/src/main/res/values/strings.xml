@@ -12,5 +12,18 @@
     <string name="urifoto">Archivo</string>
     <string name="btncam">Ir a cámara</string>
     <string name="title_activity_reproductor">Reproductor</string>
+    <string name="title_activity_like_">Like Activity</string>
+    <string name="title_activity_dis_like_">DisLike Activity</string>
+    <string name="fix_string">Arreglar</string>
+    <string name="title_activity_formulario">Formulario</string>
+    <string name="label_id">Id: </string>
+    <string name="label_nombre_item">Opinión</string>
+    <string name="crear">Nuevo Item</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="guardar">Guardar</string>
+    <string name="hipoteca_crear_item">Añadir Item</string>
+    <string name="title_activity_like">LikeActivity</string>
+    <string name="btn_imagen">Imagen</string>
+    <string name="tVUri">Uri</string>
 
 </resources>

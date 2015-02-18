@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageButtonAndro"
             android:layout_weight="0.91"
-            android:background="@drawable/demondroid"
+            android:background="#ffdcebff"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
