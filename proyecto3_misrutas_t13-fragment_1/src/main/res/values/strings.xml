@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Proyecto3_misRutas_t13-Fragment_1</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_sup">Sup</string>
+    <string name="title_activity_inf">Inf</string>
+    <string name="btnSup">Button</string>
+
+</resources>

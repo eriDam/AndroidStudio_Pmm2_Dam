@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:context=".MainActivity">
+    <!--Un frame layout sirve para reservar una parte de la interfaz
+        Definimos dos frameLayout con diferente peso para reservar el espacion,
+         el 1º ocupara la mitad que el segundo-->
+    <FrameLayout
+        android:id="@+id/sup"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/inf"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2" >
+
+    </FrameLayout>
+</LinearLayout>
+
+
