@@ -25,5 +25,6 @@
     <string name="title_activity_like">LikeActivity</string>
     <string name="btn_imagen">Imagen</string>
     <string name="tVUri">Uri</string>
+    <string name="tV_desc">Descripcion</string>
 
 </resources>

@@ -10,7 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -34,14 +37,14 @@ public class LikeActivity extends ListActivity {
         // Creamos una nueva DataBase
         mDbHelper = new DataBaseHelper(this);
         //creamos el sqlite através del método getWritableDatabase del dataBaseHelper que es a la vez
-        // un comando de SQLiteOpenHelper, Sin getWritableDatabase no se genera
+        // un comando de SQLiteOpenHelper, Sin el uso de getWritableDatabase no se genera
         db = mDbHelper.getWritableDatabase();
 
-        //Pop up con aviso
+        //Lanzamos un Pop up con aviso
         Toast.makeText(getBaseContext(), "Base de datos preparada", Toast.LENGTH_SHORT).show();
 
         //Leemos la base de datos y mostramos la informacion a través del método creado en
-        // DataBaseHelper readArtistas
+        // DataBaseHelper readBd
         Cursor c = mDbHelper.readBd(db);
         /*mDbHelper.readBd(db)  Devuelve un cursor c, que se puede introducir en
         un adaptador, ya que para meter los datos en un list view usamos un adaptador ya generado
@@ -69,6 +72,31 @@ public class LikeActivity extends ListActivity {
         );
 
     }
+    public void editHandler(View v) {
+        //get the row the clicked button is in
+        LinearLayout vwParentRow = (LinearLayout)v.getParent();
+        TextView id =(TextView) vwParentRow.findViewById(R.id._id);
+        Intent i = new Intent(LikeActivity.this, Formulario.class);
+
+        i.putExtra(C_MODO, C_EDITAR);
+        i.putExtra(mDbHelper.ID, Long.valueOf((String)id.getText()));
+
+
+        this.startActivityForResult(i, C_EDITAR);
+    }
+
+    public void viewHandler(View v) {
+        //get the row the clicked button is in
+        LinearLayout vwParentRow = (LinearLayout)v.getParent();
+        TextView id =(TextView) vwParentRow.findViewById(R.id._id);
+        Intent i = new Intent(LikeActivity.this, Formulario.class);
+
+        i.putExtra(C_MODO, C_VISUALIZAR);
+        i.putExtra(mDbHelper.ID, Long.valueOf((String)id.getText()));
+
+
+        this.startActivityForResult(i, C_VISUALIZAR);
+    }
 
 
     @Override
@@ -91,5 +119,55 @@ public class LikeActivity extends ListActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Close database
+    @Override
+    protected void onDestroy() {
+
+        mDbHelper.deleteDatabase();
+        super.onDestroy();
+
+    }
+
+    //Visualizar un dato en Formulario
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id)
+    {
+        super.onListItemClick(l, v, position, id);
+        // Llamamos a la Actividad Formulario indicando el modo visualización y el identificador del registro
+        Intent i = new Intent(LikeActivity.this, Formulario.class);
+        i.putExtra(C_MODO, C_VISUALIZAR);
+        i.putExtra(mDbHelper.ID, id);
+
+        startActivityForResult(i, C_VISUALIZAR);
+    }
+
+    //CApturamos la respuesta a la creación de registro
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        //
+        // Nos aseguramos que es la petición que hemos realizado
+        //
+        switch(requestCode)
+        {
+            case C_CREAR:
+                if (resultCode == RESULT_OK)
+                    //Leemos la base de datos y mostramos la informacion
+                    c=mAdapter.getCursor();
+                c=mDbHelper.readBd(db);
+                mAdapter.changeCursor(c);
+                mAdapter.notifyDataSetChanged();
+            case C_EDITAR:
+                if (resultCode == RESULT_OK)
+                    //Leemos la base de datos y mostramos la informacion
+                    c=mAdapter.getCursor();
+                c=mDbHelper.readBd(db);
+                mAdapter.changeCursor(c);
+                mAdapter.notifyDataSetChanged();
+            default:
+                super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }

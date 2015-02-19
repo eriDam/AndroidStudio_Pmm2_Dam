@@ -62,6 +62,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //Creamos la base de datos
         Log.i(this.getClass().toString(), "Tabla GUSTOS creada");
+
         //Generamos la tabla, CREATE_CMD es un string que contiene la sentencia SQL para la creación de la tabla
         db.execSQL(CREATE_CMD);
         /*Rellenamos la tabla,  utilizamos la Clase ContentValues, que permite de una forma fácil
